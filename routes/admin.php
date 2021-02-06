@@ -23,4 +23,5 @@ Route::group(
 Route::group(['namespace' => 'Admin', 'middleware' => 'guest:admin'], function () {
     Route::get('/login', 'AdminController@getLogin');
     Route::post('/login', 'AdminController@login')->name('admin.login');
+    Route::get('/logout', 'AdminController@logout')->name('admin.logout');
 });
