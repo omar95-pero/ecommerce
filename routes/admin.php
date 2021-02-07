@@ -14,13 +14,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+define('PAGINATION_COUNT', 10);
 Route::group(
     ['namespace' => 'Admin', 'middleware' => 'auth:admin'],
     function () {
         Route::get('/', 'DashboardController@index')->name('admin.dashboard');
         ######################Begin Languages Route##############
         Route::group(['prefix' => 'langs'], function () {
-            Route::get('/', 'LanguagesController')->name('admin.languages');
+            Route::get('/', 'LanguagesController@index')->name('admin.languages');
         });
         ######################End Languages Route  ##############
     }
