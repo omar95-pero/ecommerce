@@ -9,7 +9,7 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.languages')}}">الرئيسية</a>
                                 </li>
                                 <li class="breadcrumb-item active"> اللغات
                                 </li>
@@ -59,19 +59,19 @@
                                             @isset($languages)
                                                 @foreach($languages as $language)
                                                     <tr>
-                                                        <td>{{$language  ['name']}}</td>
-                                                        <td>{{$language ['abbr']}}</td>
-                                                        <td>{{$language ['direction']}}</td>
-                                                        <td>{{$language ['active']}}</td>                                                       
+                                                        <td>{{$language ->name}}</td>
+                                                        <td>{{$language ->abbr}}</td>
+                                                        <td>{{$language -> direction}}</td>
+                                                        <td>{{$language ->getActive()}}</td>                                                       
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
                                                                  {{-- {{route('admin.languages.edit',$language -> id)}} --}}
-                                                                <a href=""
+                                                                <a href="{{ route('admin.languages.edit',$language -> id) }}"
                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
                                                                 {{-- {{route('admin.languages.delete',$language -> id)}} --}}
-                                                                <a href=""
+                                                                <a href="{{ route('admin.languages.delete',$language -> id) }}"
                                                                    class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
 
 

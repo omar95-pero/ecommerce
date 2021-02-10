@@ -16,7 +16,7 @@ class CreateLanguagesTable extends Migration
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
             $table->string('abbr');
-            $table->string('locale');
+            $table->string('locale')->nullable();
             $table->string('name');
             $table->enum('direction', ['ltr', 'rtl'])->default('rtl');
             $table->integer('active')->default('1');

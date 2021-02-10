@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-define('PAGINATION_COUNT', 10);
+define('PAGINATION_COUNT', 20);
 Route::group(
     ['namespace' => 'Admin', 'middleware' => 'auth:admin'],
     function () {
@@ -22,6 +22,11 @@ Route::group(
         ######################Begin Languages Route##############
         Route::group(['prefix' => 'langs'], function () {
             Route::get('/', 'LanguagesController@index')->name('admin.languages');
+            Route::get('create', 'LanguagesController@create')->name('admin.languages.create');
+            Route::post('store', 'LanguagesController@store')->name('admin.languages.store');
+            Route::get('edit/{id}', 'LanguagesController@edit')->name('admin.languages.edit');
+            Route::post('update/{id}', 'LanguagesController@update')->name('admin.languages.update');
+            Route::get('delete/{id}', 'LanguagesController@destroy')->name('admin.languages.delete');
         });
         ######################End Languages Route  ##############
     }
